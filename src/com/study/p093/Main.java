@@ -1,0 +1,126 @@
+package com.study.p093;
+
+import java.io.*;
+import java.net.*;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.*;
+import java.util.*;
+import java.util.concurrent.*;
+
+/**
+ * 第 93 题：使用 JavaMail 发送文本邮件
+ *
+ * 题目摘要：
+ * 使用 JavaMail 或 Jakarta Mail 发送一封文本邮件。
+ * 要求：
+ * - 从控制台输入收件人、标题、正文。
+ * - 邮箱授权码不要硬编码在代码中。
+ * - 可以从环境变量读取授权码。
+ *
+ * 使用方式：
+ * 1. 先运行 main 方法查看示例输出。
+ * 2. 根据 TODO 完成 solve 方法或补充代码。
+ * 3. 通过控制台输入输出验证自己的实现。
+ */
+public class Main {
+    private static final Scanner SCANNER = new Scanner(System.in);
+
+    public static void main(String[] args) throws Exception {
+        System.out.println("====== Java 高级练习 第 93 题 ======");
+        System.out.println("题目：使用 JavaMail 发送文本邮件");
+        System.out.println("说明：使用 JavaMail 或 Jakarta Mail 发送一封文本邮件。");
+        System.out.println();
+        run();
+    }
+
+    private static void run() throws Exception {
+        MailConfig config = new MailConfig();
+        config.smtpHost = readLine("请输入 SMTP 地址：");
+        config.from = readLine("请输入发件人邮箱：");
+        System.out.println("邮件配置示例：" + config);
+        // TODO 学员实现：引入 JavaMail/Jakarta Mail 后完成真实发送。
+        // 安全提醒：授权码不要硬编码，建议从环境变量读取。
+        solve();
+    }
+
+    /**
+     * TODO 学员主要完成区域。
+     * 可以修改方法参数、返回值，也可以拆分更多小方法。
+     */
+    private static void solve() throws Exception {
+        System.out.println("TODO：请在 solve() 方法中完成本题核心逻辑。");
+    }
+
+    private static String readLine(String message) {
+        System.out.print(message);
+        return SCANNER.nextLine();
+    }
+
+    private static int readInt(String message) {
+        while (true) {
+            System.out.print(message);
+            String input = SCANNER.nextLine();
+            try {
+                return Integer.parseInt(input);
+            } catch (NumberFormatException e) {
+                System.out.println("请输入合法整数。");
+            }
+        }
+    }
+
+    static class DemoObject {
+        private String name;
+        private int score;
+
+        DemoObject(String name, int score) {
+            this.name = name;
+            this.score = score;
+        }
+
+        @Override
+        public String toString() {
+            return "DemoObject{name='" + name + "', score=" + score + "}";
+        }
+    }
+
+    static class Box<T> {
+        private T value;
+
+        public T getValue() {
+            return value;
+        }
+
+        public void setValue(T value) {
+            this.value = value;
+        }
+    }
+
+    static class Student implements Serializable {
+        private static final long serialVersionUID = 1L;
+
+        private String name;
+        private int age;
+
+        Student(String name, int age) {
+            this.name = name;
+            this.age = age;
+        }
+
+        @Override
+        public String toString() {
+            return "Student{name='" + name + "', age=" + age + "}";
+        }
+    }
+
+    static class MailConfig {
+        String smtpHost;
+        int port = 465;
+        String from;
+        boolean ssl = true;
+
+        @Override
+        public String toString() {
+            return "MailConfig{smtpHost='" + smtpHost + "', port=" + port + ", from='" + from + "', ssl=" + ssl + "}";
+        }
+    }
+}

@@ -1,0 +1,123 @@
+package com.study.p005;
+
+import java.io.*;
+import java.net.*;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.*;
+import java.util.*;
+import java.util.concurrent.*;
+
+/**
+ * 第 5 题：统计字符出现次数
+ *
+ * 题目摘要：
+ * 输入一段字符串，统计每个字符出现的次数。
+ * 要求：
+ * - 可以先使用数组完成。
+ * - 再尝试使用 HashMap 完成。
+ *
+ * 使用方式：
+ * 1. 先运行 main 方法查看示例输出。
+ * 2. 根据 TODO 完成 solve 方法或补充代码。
+ * 3. 通过控制台输入输出验证自己的实现。
+ */
+public class Main {
+    private static final Scanner SCANNER = new Scanner(System.in);
+
+    public static void main(String[] args) throws Exception {
+        System.out.println("====== Java 高级练习 第 5 题 ======");
+        System.out.println("题目：统计字符出现次数");
+        System.out.println("说明：输入一段字符串，统计每个字符出现的次数。");
+        System.out.println();
+        run();
+    }
+
+    private static void run() throws Exception {
+        int[] numbers = {12, 5, 33, 8, 19, 21, 7, 40, 16, 3};
+        System.out.println("示例数组：" + Arrays.toString(numbers));
+        // TODO 学员实现：根据题目要求处理数组或二维数组。
+        // 提示：优先使用 for 循环，先不要直接使用高级工具方法。
+        solve();
+    }
+
+    /**
+     * TODO 学员主要完成区域。
+     * 可以修改方法参数、返回值，也可以拆分更多小方法。
+     */
+    private static void solve() throws Exception {
+        System.out.println("TODO：请在 solve() 方法中完成本题核心逻辑。");
+    }
+
+    private static String readLine(String message) {
+        System.out.print(message);
+        return SCANNER.nextLine();
+    }
+
+    private static int readInt(String message) {
+        while (true) {
+            System.out.print(message);
+            String input = SCANNER.nextLine();
+            try {
+                return Integer.parseInt(input);
+            } catch (NumberFormatException e) {
+                System.out.println("请输入合法整数。");
+            }
+        }
+    }
+
+    static class DemoObject {
+        private String name;
+        private int score;
+
+        DemoObject(String name, int score) {
+            this.name = name;
+            this.score = score;
+        }
+
+        @Override
+        public String toString() {
+            return "DemoObject{name='" + name + "', score=" + score + "}";
+        }
+    }
+
+    static class Box<T> {
+        private T value;
+
+        public T getValue() {
+            return value;
+        }
+
+        public void setValue(T value) {
+            this.value = value;
+        }
+    }
+
+    static class Student implements Serializable {
+        private static final long serialVersionUID = 1L;
+
+        private String name;
+        private int age;
+
+        Student(String name, int age) {
+            this.name = name;
+            this.age = age;
+        }
+
+        @Override
+        public String toString() {
+            return "Student{name='" + name + "', age=" + age + "}";
+        }
+    }
+
+    static class MailConfig {
+        String smtpHost;
+        int port = 465;
+        String from;
+        boolean ssl = true;
+
+        @Override
+        public String toString() {
+            return "MailConfig{smtpHost='" + smtpHost + "', port=" + port + ", from='" + from + "', ssl=" + ssl + "}";
+        }
+    }
+}
