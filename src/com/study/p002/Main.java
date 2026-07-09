@@ -33,18 +33,23 @@ public class Main {
     }
 
     private static void run() throws Exception {
-        int[] numbers = {12, 5, 33, 8, 19, 21, 7, 40, 16, 3};
-        System.out.println("示例数组：" + Arrays.toString(numbers));
-        // TODO 学员实现：根据题目要求处理数组或二维数组。
-        // 提示：优先使用 for 循环，先不要直接使用高级工具方法。
-        solve();
+    	String[] languages = {"Java", "Python", "Go", "C++"};
+    	System.out.println("反转前：" + Arrays.toString(languages));
+        solve(languages);
+        System.out.println("反转后：" + Arrays.toString(languages));
     }
 
     /**
      * TODO 学员主要完成区域。
      * 可以修改方法参数、返回值，也可以拆分更多小方法。
      */
-    private static void solve() throws Exception {
+    private static void solve(String[] languages) throws Exception {
+    	for(int i = 0; i < languages.length/2; i ++) {
+    		int j = languages.length - 1 - i;
+            String temp = languages[i];
+            languages[i] = languages[j];
+            languages[j] = temp;
+    	}
         System.out.println("TODO：请在 solve() 方法中完成本题核心逻辑。");
     }
 
