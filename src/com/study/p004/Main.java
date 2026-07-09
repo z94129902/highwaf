@@ -47,7 +47,54 @@ public class Main {
      * 可以修改方法参数、返回值，也可以拆分更多小方法。
      */
     private static void solve() throws Exception {
-        System.out.println("TODO：请在 solve() 方法中完成本题核心逻辑。");
+        int[] queue = new int[3];
+        int front = 0;
+        int rear = 0;
+        int size = 0;
+
+        // 入队 10
+        if (size == queue.length) {
+            System.out.println("队列满了，不能入队");
+        } else {
+            queue[rear] = 10;
+            rear++;
+            size++;
+            System.out.println("入队：" + 10);
+        }
+
+        // 入队 20
+        if (size == queue.length) {
+            System.out.println("队列满了，不能入队");
+        } else {
+            queue[rear] = 20;
+            rear++;
+            size++;
+            System.out.println("入队：" + 20);
+        }
+
+        // 查看队首
+        if (size == 0) {
+            System.out.println("队列空了，没有队首元素");
+        } else {
+            System.out.println("队首元素：" + queue[front]);
+        }
+
+        // 出队
+        if (size == 0) {
+            System.out.println("队列空了，不能出队");
+        } else {
+            int value = queue[front];
+            front++;
+            size--;
+            System.out.println("出队：" + value);
+        }
+
+        // 查看队首
+        if (size == 0) {
+            System.out.println("队列空了，没有队首元素");
+        } else {
+            System.out.println("队首元素：" + queue[front]);
+        }
     }
 
     private static String readLine(String message) {
