@@ -47,7 +47,49 @@ public class Main {
      * 可以修改方法参数、返回值，也可以拆分更多小方法。
      */
     private static void solve() throws Exception {
-        System.out.println("TODO：请在 solve() 方法中完成本题核心逻辑。");
+        int[] stack = new int[3];
+        int top = -1;
+
+        // push 10
+        if (top == stack.length - 1) {
+            System.out.println("栈满了，不能入栈");
+        } else {
+            top++;
+            stack[top] = 10;
+            System.out.println("入栈：" + 10);
+        }
+
+        // push 20
+        if (top == stack.length - 1) {
+            System.out.println("栈满了，不能入栈");
+        } else {
+            top++;
+            stack[top] = 20;
+            System.out.println("入栈：" + 20);
+        }
+
+        // peek
+        if (top == -1) {
+            System.out.println("栈空了，没有栈顶元素");
+        } else {
+            System.out.println("栈顶元素：" + stack[top]);
+        }
+
+        // pop
+        if (top == -1) {
+            System.out.println("栈空了，不能出栈");
+        } else {
+            int value = stack[top];
+            top--;
+            System.out.println("出栈：" + value);
+        }
+
+        // peek
+        if (top == -1) {
+            System.out.println("栈空了，没有栈顶元素");
+        } else {
+            System.out.println("栈顶元素：" + stack[top]);
+        }
     }
 
     private static String readLine(String message) {
