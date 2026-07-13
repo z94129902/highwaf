@@ -33,19 +33,28 @@ public class Main {
     }
 
     private static void run() throws Exception {
-        int[] numbers = {12, 5, 33, 8, 19, 21, 7, 40, 16, 3};
-        System.out.println("示例数组：" + Arrays.toString(numbers));
-        // TODO 学员实现：根据题目要求处理数组或二维数组。
-        // 提示：优先使用 for 循环，先不要直接使用高级工具方法。
-        solve();
+    	int[][] scores = {
+    	        {80, 90, 85},
+    	        {70, 88, 92},
+    	        {95, 86, 78}
+    	    };
+
+    	    solve(scores);
     }
 
     /**
      * TODO 学员主要完成区域。
      * 可以修改方法参数、返回值，也可以拆分更多小方法。
      */
-    private static void solve() throws Exception {
-        System.out.println("TODO：请在 solve() 方法中完成本题核心逻辑。");
+    private static void solve(int[][] scores) throws Exception {
+    	for(int i = 0; i < scores[i].length; i++) {
+    		int sum = 0;
+    		for(int j = 0; j< scores[i].length; j++) {
+    			sum += scores[i][j];
+    		}
+    		System.out.println("第" + i + "个学生总分是" + sum + "平均分是" + sum/scores[i].length);
+    	}
+        
     }
 
     private static String readLine(String message) {
