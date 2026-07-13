@@ -33,19 +33,50 @@ public class Main {
     }
 
     private static void run() throws Exception {
-        int[] numbers = {12, 5, 33, 8, 19, 21, 7, 40, 16, 3};
-        System.out.println("示例数组：" + Arrays.toString(numbers));
-        // TODO 学员实现：根据题目要求处理数组或二维数组。
-        // 提示：优先使用 for 循环，先不要直接使用高级工具方法。
-        solve();
+    	int[] arr1 = {1, 3, 5, 7};
+        int[] arr2 = {2, 4, 6, 8};
+
+        System.out.println("数组1：" + Arrays.toString(arr1));
+        System.out.println("数组2：" + Arrays.toString(arr2));
+
+        solve(arr1, arr2);
     }
 
     /**
      * TODO 学员主要完成区域。
      * 可以修改方法参数、返回值，也可以拆分更多小方法。
      */
-    private static void solve() throws Exception {
-        System.out.println("TODO：请在 solve() 方法中完成本题核心逻辑。");
+    private static void solve(int[] arr1, int[] arr2) throws Exception {
+    	int[] result = new int[arr1.length + arr2.length];
+
+        int i = 0;
+        int j = 0;
+        int k = 0;
+
+        while (i < arr1.length && j < arr2.length) {
+            if (arr1[i] <= arr2[j]) {
+                result[k] = arr1[i];
+                i++;
+            } else {
+                result[k] = arr2[j];
+                j++;
+            }
+            k++;
+        }
+
+        while (i < arr1.length) {
+            result[k] = arr1[i];
+            i++;
+            k++;
+        }
+
+        while (j < arr2.length) {
+            result[k] = arr2[j];
+            j++;
+            k++;
+        }
+
+        System.out.println("合并后：" + Arrays.toString(result));
     }
 
     private static String readLine(String message) {
