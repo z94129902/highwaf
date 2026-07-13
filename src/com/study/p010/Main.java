@@ -34,11 +34,7 @@ public class Main {
     }
 
     private static void run() throws Exception {
-        List<String> dataList = new ArrayList<>();
-        dataList.add("Java");
-        dataList.add("集合");
-        dataList.add("练习");
-        System.out.println("当前 ArrayList：" + dataList);
+    	List<Student> students = new ArrayList<>();
         // TODO 学员实现：根据题目要求完成增删改查、排序、分页或对象存储。
         solve();
     }
@@ -48,7 +44,23 @@ public class Main {
      * 可以修改方法参数、返回值，也可以拆分更多小方法。
      */
     private static void solve() throws Exception {
-        System.out.println("TODO：请在 solve() 方法中完成本题核心逻辑。");
+    	List<Student> students = new ArrayList<>();
+
+        students.add(new Student("张三", 18));
+        students.add(new Student("李四", 20));
+        students.add(new Student("王五", 19));
+
+        System.out.println("所有学生信息：");
+        for (Student student : students) {
+            System.out.println(student);
+        }
+        Student oldestStudent = students.get(0);
+        for(Student student : students) {
+        	if(student.age > oldestStudent.age) {
+        		oldestStudent = student;
+        	}
+        }
+        System.out.println("最大学生是：" + oldestStudent);
     }
 
     private static String readLine(String message) {
