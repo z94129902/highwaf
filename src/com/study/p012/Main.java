@@ -34,12 +34,6 @@ public class Main {
     }
 
     private static void run() throws Exception {
-        List<String> dataList = new ArrayList<>();
-        dataList.add("Java");
-        dataList.add("集合");
-        dataList.add("练习");
-        System.out.println("当前 ArrayList：" + dataList);
-        // TODO 学员实现：根据题目要求完成增删改查、排序、分页或对象存储。
         solve();
     }
 
@@ -48,7 +42,20 @@ public class Main {
      * 可以修改方法参数、返回值，也可以拆分更多小方法。
      */
     private static void solve() throws Exception {
-        System.out.println("TODO：请在 solve() 方法中完成本题核心逻辑。");
+    	List<Integer> numbers = new ArrayList<>();
+
+        numbers.add(10);
+        numbers.add(20);
+        numbers.add(10);
+        numbers.add(30);
+        numbers.add(20);
+        numbers.add(40);
+
+        System.out.println("去重前：" + numbers);
+
+        Set<Integer> uniqueNumbers = new HashSet<>(numbers);
+
+        System.out.println("去重后：" + uniqueNumbers);
     }
 
     private static String readLine(String message) {
