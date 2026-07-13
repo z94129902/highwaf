@@ -35,11 +35,6 @@ public class Main {
     }
 
     private static void run() throws Exception {
-        List<String> dataList = new ArrayList<>();
-        dataList.add("Java");
-        dataList.add("集合");
-        dataList.add("练习");
-        System.out.println("当前 ArrayList：" + dataList);
         // TODO 学员实现：根据题目要求完成增删改查、排序、分页或对象存储。
         solve();
     }
@@ -49,7 +44,24 @@ public class Main {
      * 可以修改方法参数、返回值，也可以拆分更多小方法。
      */
     private static void solve() throws Exception {
-        System.out.println("TODO：请在 solve() 方法中完成本题核心逻辑。");
+    	Collection<String> first = new ArrayList<>();
+        Collection<String> second = new ArrayList<>();
+
+        first.add("张三");
+        first.add("李四");
+        first.add("王五");
+
+        second.add("赵六");
+        second.add("钱七");
+
+        System.out.println("第一个集合：" + first);
+        System.out.println("第二个集合：" + second);
+
+        first.remove("李四");
+        System.out.println("第一个集合删除李四后：" + first);
+
+        System.out.println("第一个集合是否包含张三：" + first.contains("张三"));
+        System.out.println("第二个集合大小：" + second.size());
     }
 
     private static String readLine(String message) {
