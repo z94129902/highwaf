@@ -37,15 +37,27 @@ public class Main {
         System.out.println("示例数组：" + Arrays.toString(numbers));
         // TODO 学员实现：根据题目要求处理数组或二维数组。
         // 提示：优先使用 for 循环，先不要直接使用高级工具方法。
-        solve();
+        solve(numbers);
     }
 
     /**
      * TODO 学员主要完成区域。
      * 可以修改方法参数、返回值，也可以拆分更多小方法。
      */
-    private static void solve() throws Exception {
-        System.out.println("TODO：请在 solve() 方法中完成本题核心逻辑。");
+    private static void solve(int[] numbers) throws Exception {
+    	int max = 0;
+        int secondMax = 0;
+        
+        for(int i = 0; i < numbers.length; i ++) {
+        	if(numbers[i] > max) {
+        		
+        		secondMax = max;
+        		max = numbers[i];
+        	} else if (numbers[i] > secondMax && numbers[i] < max) {
+        		secondMax = numbers[i];
+        	}
+        }
+        System.out.println("第二大数字是：" + secondMax);
     }
 
     private static String readLine(String message) {
