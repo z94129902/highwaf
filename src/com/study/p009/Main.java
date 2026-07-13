@@ -35,21 +35,30 @@ public class Main {
     }
 
     private static void run() throws Exception {
-        List<String> dataList = new ArrayList<>();
-        dataList.add("Java");
-        dataList.add("集合");
-        dataList.add("练习");
-        System.out.println("当前 ArrayList：" + dataList);
-        // TODO 学员实现：根据题目要求完成增删改查、排序、分页或对象存储。
-        solve();
+        List<String> students = new ArrayList<>();
+        students.add("张三");
+        students.add("李四");
+        students.add("王五");
+        students.add("赵六");
+        students.add("钱七");
+
+        System.out.println("原始学生名单：" + students);
+
+        solve(students);
     }
 
     /**
      * TODO 学员主要完成区域。
      * 可以修改方法参数、返回值，也可以拆分更多小方法。
      */
-    private static void solve() throws Exception {
-        System.out.println("TODO：请在 solve() 方法中完成本题核心逻辑。");
+    private static void solve(List<String>students) throws Exception {
+    	students.add("孙八");
+    	System.out.println("当前学生名单：" + students);
+    	students.remove(0);
+    	System.out.println("当前学生名单：" + students);
+    	students.set(3, "N/A");
+    	System.out.println("当前学生名单：" + students);
+        
     }
 
     private static String readLine(String message) {
