@@ -45,6 +45,7 @@ public class Main {
      * 可以修改方法参数、返回值，也可以拆分更多小方法。
      */
     private static void solve() throws Exception {
+    	
         System.out.println("TODO：请在 solve() 方法中完成本题核心逻辑。");
     }
 
