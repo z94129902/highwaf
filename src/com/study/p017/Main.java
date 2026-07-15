@@ -35,12 +35,7 @@ public class Main {
     }
 
     private static void run() throws Exception {
-        List<String> dataList = new ArrayList<>();
-        dataList.add("Java");
-        dataList.add("集合");
-        dataList.add("练习");
-        System.out.println("当前 ArrayList：" + dataList);
-        // TODO 学员实现：根据题目要求完成增删改查、排序、分页或对象存储。
+        
         solve();
     }
 
@@ -49,7 +44,67 @@ public class Main {
      * 可以修改方法参数、返回值，也可以拆分更多小方法。
      */
     private static void solve() throws Exception {
-        System.out.println("TODO：请在 solve() 方法中完成本题核心逻辑。");
+    	List<String> productList = new ArrayList<>();
+
+        productList.add("苹果");
+        productList.add("香蕉");
+        productList.add("牛奶");
+        while (true) {
+            System.out.println();
+            System.out.println("====== 商品管理菜单 ======");
+            System.out.println("1. 添加商品");
+            System.out.println("2. 删除商品");
+            System.out.println("3. 修改商品");
+            System.out.println("4. 查询全部商品");
+            System.out.println("0. 退出程序");
+
+            int choice = readInt("请选择操作：");
+
+            if (choice == 1) {
+                addProduct(productList);
+            } else if (choice == 2) {
+                deleteProduct(productList);
+            } else if (choice == 3) {
+                updateProduct(productList);
+            } else if (choice == 4) {
+                showProducts(productList);
+            } else if (choice == 0) {
+                System.out.println("程序已退出。");
+                break;
+            } else {
+                System.out.println("没有这个选项，请重新输入。");
+            }
+        }
+    }
+    
+    private static void addProduct(List<String> productList) {
+    	String productName = readLine("请输入名称：");
+    	productList.add(productName);
+    }
+    
+    private static void deleteProduct(List<String> productList) {
+    	int num = readInt("输入要删除的编号：");
+    	if (num < 0 || num >= productList.size() - 1) {
+            System.out.println("商品编号不存在。");
+            return;
+        }
+    	productList.remove(num);
+    }
+    
+    private static void updateProduct(List<String> productList) {
+    	int number = readInt("请输入要修改的商品编号：");
+
+        if (number < 0 || number >= productList.size()) {
+            System.out.println("商品编号不存在。");
+            return;
+        }
+        String newString = readLine("输入要改的：");
+        productList.set(number, newString);
+        System.out.println("改完后：" + productList );
+    }
+    
+    private static void showProducts(List<String> productList) {
+    	System.out.println("展示商品：" + productList );
     }
 
     private static String readLine(String message) {
