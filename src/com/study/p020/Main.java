@@ -33,12 +33,7 @@ public class Main {
     }
 
     private static void run() throws Exception {
-        List<String> dataList = new ArrayList<>();
-        dataList.add("Java");
-        dataList.add("集合");
-        dataList.add("练习");
-        System.out.println("当前 ArrayList：" + dataList);
-        // TODO 学员实现：根据题目要求完成增删改查、排序、分页或对象存储。
+        
         solve();
     }
 
@@ -47,7 +42,24 @@ public class Main {
      * 可以修改方法参数、返回值，也可以拆分更多小方法。
      */
     private static void solve() throws Exception {
-        System.out.println("TODO：请在 solve() 方法中完成本题核心逻辑。");
+    	List<String> dataList = new ArrayList<>();
+
+        dataList.add("Java");
+        dataList.add("集合");
+        dataList.add("Java");
+        dataList.add("练习");
+        dataList.add("Java");
+        dataList.add("数组");
+        String target = readLine("请输入要删除的字符串：");
+
+        for (int i = dataList.size() - 1; i >= 0; i--) {
+            if (dataList.get(i).equals(target)) {
+                dataList.remove(i);
+            }
+        }
+
+        System.out.println("删除后：" + dataList);
+        
     }
 
     private static String readLine(String message) {
