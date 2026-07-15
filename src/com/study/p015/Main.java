@@ -33,12 +33,7 @@ public class Main {
     }
 
     private static void run() throws Exception {
-        List<String> dataList = new ArrayList<>();
-        dataList.add("Java");
-        dataList.add("集合");
-        dataList.add("练习");
-        System.out.println("当前 ArrayList：" + dataList);
-        // TODO 学员实现：根据题目要求完成增删改查、排序、分页或对象存储。
+        
         solve();
     }
 
@@ -47,7 +42,21 @@ public class Main {
      * 可以修改方法参数、返回值，也可以拆分更多小方法。
      */
     private static void solve() throws Exception {
-        System.out.println("TODO：请在 solve() 方法中完成本题核心逻辑。");
+    	ArrayList<Integer> numberList = new ArrayList<>();
+
+        numberList.add(35);
+        numberList.add(12);
+        numberList.add(78);
+        numberList.add(5);
+        numberList.add(46);
+        
+        Collections.sort(numberList);
+        System.out.println("升序：" + numberList);
+        ArrayList<Integer> descendingList = new ArrayList<>();
+        for(int i = numberList.size()-1; i >= 0; i--) {
+        	descendingList.add(numberList.get(i));
+        }
+        System.out.println("降序：" + descendingList);
     }
 
     private static String readLine(String message) {
