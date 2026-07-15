@@ -34,12 +34,7 @@ public class Main {
     }
 
     private static void run() throws Exception {
-        List<String> dataList = new ArrayList<>();
-        dataList.add("Java");
-        dataList.add("集合");
-        dataList.add("练习");
-        System.out.println("当前 ArrayList：" + dataList);
-        // TODO 学员实现：根据题目要求完成增删改查、排序、分页或对象存储。
+        
         solve();
     }
 
@@ -48,8 +43,54 @@ public class Main {
      * 可以修改方法参数、返回值，也可以拆分更多小方法。
      */
     private static void solve() throws Exception {
-        System.out.println("TODO：请在 solve() 方法中完成本题核心逻辑。");
+    	List<Order> orderList = new ArrayList<>();
+
+        orderList.add(new Order("A001", "张三", 80.5));
+        orderList.add(new Order("A002", "李四", 150.0));
+        orderList.add(new Order("A003", "王五", 220.5));
+        orderList.add(new Order("A004", "赵六", 99.0));
+        double totalAmount = 0;
+
+        System.out.println();
+        System.out.println("金额大于 100 的订单：");
+
+        for (int i = 0; i < orderList.size(); i++) {
+
+            if (orderList.get(i).amount > 100) {
+                System.out.println(orderList.get(i));
+            }
+
+            totalAmount =
+                    totalAmount + orderList.get(i).amount;
+        }
+
+        System.out.println();
+        System.out.println("所有订单总金额：" + totalAmount);
     }
+    static class Order {
+        private String orderNumber;
+        private String username;
+        private double amount;
+
+        Order(
+                String orderNumber,
+                String username,
+                double amount
+        ) {
+            this.orderNumber = orderNumber;
+            this.username = username;
+            this.amount = amount;
+        }
+
+        @Override
+        public String toString() {
+            return "Order{orderNumber='" + orderNumber
+                    + "', username='" + username
+                    + "', amount=" + amount
+                    + "}";
+        }
+    }  
+    
 
     private static String readLine(String message) {
         System.out.print(message);
