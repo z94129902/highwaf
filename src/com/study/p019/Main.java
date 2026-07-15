@@ -34,12 +34,7 @@ public class Main {
     }
 
     private static void run() throws Exception {
-        List<String> dataList = new ArrayList<>();
-        dataList.add("Java");
-        dataList.add("集合");
-        dataList.add("练习");
-        System.out.println("当前 ArrayList：" + dataList);
-        // TODO 学员实现：根据题目要求完成增删改查、排序、分页或对象存储。
+        
         solve();
     }
 
@@ -48,7 +43,24 @@ public class Main {
      * 可以修改方法参数、返回值，也可以拆分更多小方法。
      */
     private static void solve() throws Exception {
-        System.out.println("TODO：请在 solve() 方法中完成本题核心逻辑。");
+    	List<String> cityList = new ArrayList<>();
+
+        cityList.add("北京");
+        cityList.add("上海");
+        cityList.add("广州");
+        cityList.add("深圳");
+        cityList.add("杭州");
+        String cityName = readLine("请输入要查找的城市：");
+
+        if (cityList.contains(cityName)) {
+            int index = cityList.indexOf(cityName);
+
+            System.out.println("集合中存在该城市。");
+            System.out.println("城市所在下标：" + index);
+        } else {
+            System.out.println("集合中不存在该城市。");
+        }
+        
     }
 
     private static String readLine(String message) {
