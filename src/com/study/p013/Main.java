@@ -57,7 +57,8 @@ public class Main {
         
         List<Integer> result = new ArrayList<>();
         
-        for(Integer num : list1) {
+        for(int i = 0; i < list1.size(); i++) {
+        	int num = list1.get(i);
         	if(list2.contains(num)) {
         		result.add(num);
         	}
