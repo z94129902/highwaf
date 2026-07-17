@@ -35,21 +35,80 @@ public class Main {
     }
 
     private static void run() throws Exception {
-        LinkedList<String> linkedList = new LinkedList<>();
-        linkedList.add("任务A");
-        linkedList.add("任务B");
-        linkedList.add("任务C");
-        System.out.println("当前 LinkedList：" + linkedList);
-        // TODO 学员实现：练习队列、栈、首尾操作或遍历方式。
-        solve();
+        LinkedList<String> playlist = new LinkedList<>();
+
+        playlist.add("晴天");
+        playlist.add("七里香");
+        playlist.add("稻香");
+
+        System.out.println("当前播放列表：" + playlist);
+
+        solve(playlist);
     }
 
     /**
-     * TODO 学员主要完成区域。
-     * 可以修改方法参数、返回值，也可以拆分更多小方法。
+     * 模拟添加歌曲、删除歌曲、下一首和上一首。
      */
-    private static void solve() throws Exception {
-        System.out.println("TODO：请在 solve() 方法中完成本题核心逻辑。");
+    private static void solve(LinkedList<String> playlist) throws Exception {
+        if (playlist.isEmpty()) {
+            System.out.println("播放列表为空。");
+            return;
+        }
+
+        int currentIndex = 0;
+
+        System.out.println("当前播放：" + playlist.get(currentIndex));
+
+        playlist.add("夜曲");
+        System.out.println("添加歌曲《夜曲》后：" + playlist);
+
+        if (currentIndex < playlist.size() - 1) {
+            currentIndex++;
+            System.out.println("下一首：" + playlist.get(currentIndex));
+        } else {
+            System.out.println("已经是最后一首歌曲。");
+        }
+
+        if (currentIndex < playlist.size() - 1) {
+            currentIndex++;
+            System.out.println("下一首：" + playlist.get(currentIndex));
+        } else {
+            System.out.println("已经是最后一首歌曲。");
+        }
+
+        if (currentIndex > 0) {
+            currentIndex--;
+            System.out.println("上一首：" + playlist.get(currentIndex));
+        } else {
+            System.out.println("已经是第一首歌曲。");
+        }
+
+        String deletedSong = "七里香";
+
+        int deletedIndex = playlist.indexOf(deletedSong);
+
+        if (deletedIndex != -1) {
+            playlist.remove(deletedSong);
+
+           
+            if (deletedIndex < currentIndex) {
+                currentIndex--;
+            }
+
+            if (currentIndex >= playlist.size()) {
+                currentIndex = playlist.size() - 1;
+            }
+
+            System.out.println("删除歌曲《" + deletedSong + "》后：" + playlist);
+        } else {
+            System.out.println("播放列表中没有歌曲《" + deletedSong + "》。");
+        }
+
+        if (!playlist.isEmpty()) {
+            System.out.println("当前播放：" + playlist.get(currentIndex));
+        } else {
+            System.out.println("播放列表为空。");
+        }
     }
 
     private static String readLine(String message) {
