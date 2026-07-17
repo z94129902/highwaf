@@ -33,22 +33,58 @@ public class Main {
         run();
     }
 
-    private static void run() throws Exception {
+    private static void run() {
         List<String> dataList = new ArrayList<>();
-        dataList.add("Java");
-        dataList.add("集合");
-        dataList.add("练习");
-        System.out.println("当前 ArrayList：" + dataList);
-        // TODO 学员实现：根据题目要求完成增删改查、排序、分页或对象存储。
-        solve();
+
+        for (int i = 1; i <= 30; i++) {
+            dataList.add("数据" + i);
+        }
+
+        System.out.println("全部数据：" + dataList);
+
+        solve(dataList);
     }
 
-    /**
-     * TODO 学员主要完成区域。
-     * 可以修改方法参数、返回值，也可以拆分更多小方法。
-     */
-    private static void solve() throws Exception {
-        System.out.println("TODO：请在 solve() 方法中完成本题核心逻辑。");
+    private static void solve(List<String> dataList) {
+        int pageNumber = readInt("请输入页码：");
+        int pageSize = readInt("请输入每页条数：");
+
+        if (pageNumber <= 0) {
+            System.out.println("页码必须大于 0。");
+            return;
+        }
+
+        if (pageSize <= 0) {
+            System.out.println("每页条数必须大于 0。");
+            return;
+        }
+
+        int totalPages =
+                (dataList.size() + pageSize - 1) / pageSize;
+
+        if (pageNumber > totalPages) {
+            System.out.println("页码不存在。");
+            System.out.println("总页数是：" + totalPages);
+            return;
+        }
+
+        int startIndex = (pageNumber - 1) * pageSize;
+        int endIndex = startIndex + pageSize;
+
+        if (endIndex > dataList.size()) {
+            endIndex = dataList.size();
+        }
+
+        System.out.println();
+        System.out.println("第 " + pageNumber + " 页的数据：");
+
+        for (int i = startIndex; i < endIndex; i++) {
+            System.out.println(dataList.get(i));
+        }
+
+        System.out.println("当前页：" + pageNumber);
+        System.out.println("每页条数：" + pageSize);
+        System.out.println("总页数：" + totalPages);
     }
 
     private static String readLine(String message) {
