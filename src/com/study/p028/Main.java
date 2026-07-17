@@ -34,21 +34,44 @@ public class Main {
     }
 
     private static void run() throws Exception {
-        LinkedList<String> linkedList = new LinkedList<>();
-        linkedList.add("任务A");
-        linkedList.add("任务B");
-        linkedList.add("任务C");
-        System.out.println("当前 LinkedList：" + linkedList);
-        // TODO 学员实现：练习队列、栈、首尾操作或遍历方式。
-        solve();
+    	LinkedList<String> history = new LinkedList<>();
+
+        history.add("首页");
+
+        System.out.println("当前浏览记录：" + history);
+
+        solve(history);
     }
 
     /**
      * TODO 学员主要完成区域。
      * 可以修改方法参数、返回值，也可以拆分更多小方法。
      */
-    private static void solve() throws Exception {
-        System.out.println("TODO：请在 solve() 方法中完成本题核心逻辑。");
+    private static void solve(LinkedList<String> history) throws Exception {
+    	history.addLast("百度");
+        System.out.println("访问新页面：百度");
+        System.out.println("当前页面：" + history.getLast());
+
+        history.addLast("哔哩哔哩");
+        System.out.println("访问新页面：哔哩哔哩");
+        System.out.println("当前页面：" + history.getLast());
+
+        history.addLast("GitHub");
+        System.out.println("访问新页面：GitHub");
+        System.out.println("当前页面：" + history.getLast());
+
+        System.out.println("全部历史记录：" + history);
+
+        if (history.size() > 1) {
+            String closedPage = history.removeLast();
+
+            System.out.println("离开页面：" + closedPage);
+            System.out.println("后退后的当前页面：" + history.getLast());
+        } else {
+            System.out.println("已经是第一个页面，无法继续后退。");
+        }
+
+        System.out.println("后退后的历史记录：" + history);
     }
 
     private static String readLine(String message) {
