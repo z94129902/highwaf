@@ -32,22 +32,22 @@ public class Main {
         run();
     }
 
-    private static void run() throws Exception {
+    private static void run() {
         List<String> dataList = new ArrayList<>();
+
         dataList.add("Java");
         dataList.add("集合");
         dataList.add("练习");
+
         System.out.println("当前 ArrayList：" + dataList);
-        // TODO 学员实现：根据题目要求完成增删改查、排序、分页或对象存储。
-        solve();
+
+        solve(dataList);
     }
 
-    /**
-     * TODO 学员主要完成区域。
-     * 可以修改方法参数、返回值，也可以拆分更多小方法。
-     */
-    private static void solve() throws Exception {
-        System.out.println("TODO：请在 solve() 方法中完成本题核心逻辑。");
+    private static void solve(List<String> dataList) {
+        String[] dataArray = dataList.toArray(new String[0]);
+
+        System.out.println("转换后的数组：" + Arrays.toString(dataArray));
     }
 
     private static String readLine(String message) {
