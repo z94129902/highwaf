@@ -34,12 +34,6 @@ public class Main {
     }
 
     private static void run() throws Exception {
-        LinkedList<String> linkedList = new LinkedList<>();
-        linkedList.add("任务A");
-        linkedList.add("任务B");
-        linkedList.add("任务C");
-        System.out.println("当前 LinkedList：" + linkedList);
-        // TODO 学员实现：练习队列、栈、首尾操作或遍历方式。
         solve();
     }
 
@@ -48,7 +42,25 @@ public class Main {
      * 可以修改方法参数、返回值，也可以拆分更多小方法。
      */
     private static void solve() throws Exception {
-        System.out.println("TODO：请在 solve() 方法中完成本题核心逻辑。");
+    	LinkedList<Integer> linkedList = new LinkedList<>();
+
+        linkedList.push(10);
+        linkedList.push(20);
+        linkedList.push(30);
+        int topNumber = linkedList.peek();
+
+        System.out.println("当前栈顶元素：" + topNumber);
+        System.out.println("查看栈顶后的栈：" + linkedList);
+
+      
+        linkedList.push(40);
+
+        System.out.println("40 入栈后：" + linkedList);
+
+        int removedNumber = linkedList.pop();
+
+        System.out.println("出栈的元素：" + removedNumber);
+        System.out.println("出栈后的栈：" + linkedList);
     }
 
     private static String readLine(String message) {
