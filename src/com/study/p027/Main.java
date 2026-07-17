@@ -41,15 +41,27 @@ public class Main {
         linkedList.add("任务C");
         System.out.println("当前 LinkedList：" + linkedList);
         // TODO 学员实现：练习队列、栈、首尾操作或遍历方式。
-        solve();
+        solve(linkedList);
     }
 
     /**
      * TODO 学员主要完成区域。
      * 可以修改方法参数、返回值，也可以拆分更多小方法。
      */
-    private static void solve() throws Exception {
-        System.out.println("TODO：请在 solve() 方法中完成本题核心逻辑。");
+    private static void solve(LinkedList<String> linkedList) throws Exception {
+    	linkedList.addFirst("紧急任务");
+        System.out.println("添加首元素后：" + linkedList);
+
+        linkedList.addLast("最后任务");
+        System.out.println("添加尾元素后：" + linkedList);
+
+        String removedFirst = linkedList.removeFirst();
+        System.out.println("删除的首元素：" + removedFirst);
+        System.out.println("删除首元素后：" + linkedList);
+
+        String removedLast = linkedList.removeLast();
+        System.out.println("删除的尾元素：" + removedLast);
+        System.out.println("删除尾元素后：" + linkedList);
     }
 
     private static String readLine(String message) {
