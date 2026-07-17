@@ -37,17 +37,41 @@ public class Main {
         linkedList.add("任务A");
         linkedList.add("任务B");
         linkedList.add("任务C");
+        
         System.out.println("当前 LinkedList：" + linkedList);
-        // TODO 学员实现：练习队列、栈、首尾操作或遍历方式。
-        solve();
+        
+        ArrayList<String> arrayList = new ArrayList<>();
+        arrayList.add("任务1");
+        arrayList.add("任务2");
+        arrayList.add("任务3");
+        
+        System.out.println("当前 ArrayList：" + arrayList);
+        
+        solve(linkedList, arrayList);
     }
 
     /**
      * TODO 学员主要完成区域。
      * 可以修改方法参数、返回值，也可以拆分更多小方法。
      */
-    private static void solve() throws Exception {
-        System.out.println("TODO：请在 solve() 方法中完成本题核心逻辑。");
+    private static void solve(LinkedList<String> linkedList, ArrayList<String> arrayList) throws Exception {
+    	long starttime1 = System.currentTimeMillis();
+    	for(int i = 0; i < 30000; i++) {
+    		linkedList.addFirst("测试");
+    	}
+    	long endtime1 = System.currentTimeMillis();
+    	long usedtime1 = endtime1 - starttime1;
+    	System.out.println("spent time of linkedList:" + usedtime1);
+    	
+    	long starttime2 = System.currentTimeMillis();
+    	for(int i = 0; i < 30000; i++) {
+    		arrayList.addFirst("测试");
+    	}
+    	long endtime2 = System.currentTimeMillis();
+    	long usedtime2 = endtime2 - starttime2;
+    	System.out.println("spent time of arrayList:" + usedtime2);
+    	
+    	
     }
 
     private static String readLine(String message) {
